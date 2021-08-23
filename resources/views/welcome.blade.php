@@ -33,6 +33,9 @@
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                         @endif
                     @endauth
+                    <form action="{{route("logout")}}" method="post">
+                        <button type="submit"> log out</button>
+                    </form>
                 </div>
             @endif
 
