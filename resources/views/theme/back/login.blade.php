@@ -75,9 +75,12 @@
               /></span>
             </div>
             <!-- Form -->
+            @if ($errors->any())
+                <x-alert tipo="danger" :mensaje="$errors"/>
+            @endif
             <form
               class="form-horizontal mt-3"
-              id="loginform"
+              id="loginform1"
               action="{{route("login")}}"
               method="POST"
             >
