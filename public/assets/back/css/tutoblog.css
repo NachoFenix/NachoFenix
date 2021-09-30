@@ -2,3 +2,11 @@ label.requerido:after{
     content: " *";
     color: #e73d4a;
 }
+
+.float-rigth{
+    float: right;
+}
+
+.float-left{
+    float: left;
+}

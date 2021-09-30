@@ -10,19 +10,16 @@
 @section('contenido')
     <div class="row">
         <div class="col-md-12">
-            @if ($mensaje = session("mensaje"))
-                <x-alert tipo="success" :mensaje="mensaje"/>
-            @endif
             @if ($errors->any())
                 <x-alert tipo="danger" :mensaje="$errors"/> 
             @endif
             <div class="card">
                 <div class="card-header bg-success">
-                    <h5 class="text-white float-left">Crear Menús</h5>
-                    <a href="{{route('menu')}}" class="btn btn-outline-light btn-sm float-rigth d-inline">Volver al listado</a> 
+                    <h5 class="text-white float-left">Editar Menú {{$data->nombre}}</h5>
+                    <a href="{{route('menu')}}" class="btn btn-outline-light btn-sm float-rigth">Volver al listado</a> 
                 </div>
-                <form action="{{route("menu.guardar")}}" id="form-general" class="form-horizontal" method="POST">
-                    @csrf
+                <form action="{{route("menu.actualizar", $data->id)}}" id="form-general" class="form-horizontal" method="POST">
+                    @csrf @method('put')
                     <div class="card-body">
                         @include('theme.back.menu.form')
                     </div>
@@ -31,7 +28,7 @@
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-5">
-                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                    <button type="submit" class="btn btn-success">Actualizar</button>
                                 </div>
                             </div>
                         </div>

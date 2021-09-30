@@ -25,7 +25,9 @@
     <!-- Custom CSS -->
     <!-- Custom CSS -->
     <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset("assests/back/css/tutoblog.css")}}">
+    <!-- CSS DINAMICO -->
+    @yield('styles')
+    <link rel="stylesheet" href="{{asset("assets/back/css/tutoblog.css")}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -75,7 +77,6 @@
           <!-- Container fluid  -->
         <!-- ============================================================== -->
            <div class="container-fluid">
-               Aqui va el contenido
                 @yield('contenido')
           </div>
           <!-- ============================================================== -->
