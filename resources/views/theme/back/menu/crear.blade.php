@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-12">
             @if ($mensaje = session("mensaje"))
-                <x-alert tipo="success" :mensaje="mensaje"/>
+                <x-alert tipo="success" :mensaje="$mensaje"/>
             @endif
             @if ($errors->any())
                 <x-alert tipo="danger" :mensaje="$errors"/> 

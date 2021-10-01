@@ -20,7 +20,7 @@ class Menu extends Model
     {
         if($front){
             return $this->whereHas('roles',function($query){
-                $query->where('rol_id', session()->get('rol_id'))->orderby('menus_id');
+                $query->where('roles_id', session()->get('rol_id'))->orderby('menus_id');
             })->orderby('menus_id')
             ->orderby('orden')
             ->get()

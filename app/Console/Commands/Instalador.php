@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Rol;
+use App\Models\Backend\Rol;
 use App\Models\Usuario;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
@@ -44,7 +44,7 @@ class Instalador extends Command
             $rol = $this->crearRolSuperAdmin();
             $usuario = $this->crearUsuarioSuperAdmin();
             $usuario->roles()->attach($rol);
-            $this->info('El comando se ejecuto correctamente Rol y usuario credos correctamente');
+            $this->info('El comando se ejecuto correctamente Rol y usuario creados correctamente');
         }else{
             $this->error('No se puede ejecuar el instalador, porque ya hay un rol creado');
         }

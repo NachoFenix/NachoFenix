@@ -34,9 +34,11 @@ class MenuRolController extends Controller
             $menu = Menu::findOrFail($request->menu_id);
             if ($request->estado == 1) {
                 $menu->roles()->attach($request->rol_id);
+                cache()->tags('Menu')->flush();
                 return response()->json(['respuesta' => 'El rol se asigno correctamente']);
             }else{
                 $menu->roles()->detach($request->rol_id);
+                cache()->tags('Menu')->flush();
                 return response()->json(['respuesta' => 'El rol se elimino correctamente']);
             }
         }else{

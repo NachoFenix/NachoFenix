@@ -40,18 +40,8 @@ class MenuController extends Controller
     {
         $validado = $request->validated();
         Menu::create($validado);
+        cache()->tags('Menu')->flush();
         return redirect()->route('menu.crear')->with('mensaje','Menú creado correctamente');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -76,6 +66,7 @@ class MenuController extends Controller
     public function actualizar(ValidacionMenu $request, $id)
     {
         Menu::findOrFail($id)->update($request->validated());
+        cache()->tags('Menu')->flush();
         return redirect()->route('menu')->with('mensaje', 'Menu actualizado con exito');
     }
 
@@ -88,6 +79,7 @@ class MenuController extends Controller
     public function eliminar($id)
     {
         Menu::destroy($id);
+        cache()->tags('Menu')->flush();
         return redirect()->route('menu')->with('mensaje','Menu eliminado con exito');
     }
 
@@ -95,6 +87,7 @@ class MenuController extends Controller
     {
         if($request->ajax()){
             Menu::guardarOrden($request->menu);
+            cache()->tags('Menu')->flush();
             return response()->json(['respuesta'=> 'ok']);
         }else{
             abort(404);
