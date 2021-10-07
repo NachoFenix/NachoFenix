@@ -1,4 +1,9 @@
 @extends('theme.back.app');
+@section('titulo')
+Dashboard
+@endsection
 @section('contenido')
-    Aqui va mi dashboard
+    <div class="row">
+        Aqui va el Dashboard
+    </div>
 @endsection

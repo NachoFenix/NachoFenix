@@ -43,23 +43,4 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="confirmar-eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Confirme esta acción</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Seguro desea eliminar este menú? Recuerde que si es menú padre se eliminara los menú hijos
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-                    <button type="button" id="accion-eliminar" class="btn btn-danger" data-dismiss="modal">Si</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

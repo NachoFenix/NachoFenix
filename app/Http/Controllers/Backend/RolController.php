@@ -15,7 +15,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Rol::orderBy('id')->get();
+        return view('theme.back.rol.index',compact('roles'));
     }
 
     /**
@@ -23,9 +24,9 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crear()
     {
-        //
+        return view('theme.back.rol.crear');
     }
 
     /**

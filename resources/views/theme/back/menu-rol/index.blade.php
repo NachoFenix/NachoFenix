@@ -1,5 +1,5 @@
 @extends('theme.back.app')
-@section('tutulo')
+@section('titulo')
 Menú Rol
 @endsection
 

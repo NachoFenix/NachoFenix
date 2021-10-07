@@ -25,6 +25,7 @@
     <!-- Custom CSS -->
     <!-- Custom CSS -->
     <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet" />
+    <link href="{{asset("assets/back/extra-libs/DataTables/datatables.min.css")}}" rel="stylesheet" />
     <!-- CSS DINAMICO -->
     @yield('styles')
     <link rel="stylesheet" href="{{asset("assets/back/css/tutoblog.css")}}">
@@ -78,6 +79,24 @@
         <!-- ============================================================== -->
            <div class="container-fluid">
                 @yield('contenido')
+                <div class="modal fade" id="confirmar-eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModal">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title">Confirme esta acción</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              Seguro desea eliminar este registro ?
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                              <button type="button" id="accion-eliminar" class="btn btn-danger" data-dismiss="modal">Si</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
           <!-- ============================================================== -->
           <!-- End Container fluid  -->
@@ -109,6 +128,7 @@
     <!-- Plugins -->
     <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.validate.min.js")}}"></script>
     <script src="{{asset("assets/back/libs/jquery-validation/dist/localization/messages_es.js")}}"></script>
+    <script src="{{asset("assets/back/extra-libs/DataTables/datatables.min.js")}}"></script>
     <!-- Plugins de paginas especificas -->
     @yield('scriptsPlugins')
     <!-- Scrips de paginas especificas -->

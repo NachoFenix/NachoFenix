@@ -10,3 +10,12 @@ label.requerido:after{
 .float-left{
     float: left;
 }
+
+.boton-eliminar{
+    background: transparent;
+    border: none;
+}
+
+.ml{
+    margin-left: auto;
+}
