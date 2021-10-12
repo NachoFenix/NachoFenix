@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoriaController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\MenuRolController;
-use App\Http\Controllers\Backend\rolController;
-use App\Http\Controllers\Backend\rolRolController;
+use App\Http\Controllers\Backend\RolController;
+use App\Http\Controllers\Backend\PermisoController;
+use App\Http\Controllers\Backend\PermisoRolController;
 use App\Http\Controllers\MiCuentaController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     //return view('theme.back.app');
-    return view('welcome');
-});
+    return view('theme.front.index');
+})->name('inicio');
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 
@@ -41,12 +43,12 @@ Route::group(['prefix'=> 'admin-backend', 'middleware'=>['auth','superadministra
     Route::post('menu-rol',[MenuRolController::class, 'guardar'])->name('menu-rol.guardar');
 
     //Rutas del rol
-    Route::get('rol',[rolController::class, 'index'])->name('rol');
-    Route::get('rol/crear',[rolController::class, 'crear'])->name('rol.crear');
-    Route::get('rol/{rol}/editar',[rolController::class, 'editar'])->name('rol.editar');
-    Route::post('rol', [rolController::class, 'guardar'])->name('rol.guardar');
-    Route::put('rol/{rol}', [rolController::class, 'actualizar'])->name('rol.actualizar');
-    Route::delete('rol/{rol}/eliminar', [rolController::class, 'eliminar'])->name('rol.eliminar');
+    Route::get('rol',[RolController::class, 'index'])->name('rol');
+    Route::get('rol/crear',[RolController::class, 'crear'])->name('rol.crear');
+    Route::get('rol/{rol}/editar',[RolController::class, 'editar'])->name('rol.editar');
+    Route::post('rol', [RolController::class, 'guardar'])->name('rol.guardar');
+    Route::put('rol/{rol}', [RolController::class, 'actualizar'])->name('rol.actualizar');
+    Route::delete('rol/{rol}/eliminar', [RolController::class, 'eliminar'])->name('rol.eliminar');
 
     //Rutas de permiso
     Route::get('permiso',[PermisoController::class, 'index'])->name('permiso');
@@ -56,8 +58,16 @@ Route::group(['prefix'=> 'admin-backend', 'middleware'=>['auth','superadministra
     Route::put('permiso/{id}', [PermisoController::class, 'actualizar'])->name('permiso.actualizar');
     Route::delete('permiso/{id}/eliminar', [PermisoController::class, 'eliminar'])->name('permiso.eliminar');
 
-    // Rutas del menu rol
+    // Rutas del permiso rol
     Route::get('permiso-rol',[PermisoRolController::class, 'index'])->name('permiso-rol');
     Route::post('permiso-rol',[PermisoRolController::class, 'guardar'])->name('permiso-rol.guardar');
-  
+    
+    //Rutas de categoria
+    Route::get('categoria',[CategoriaController::class, 'index'])->name('categoria');
+    Route::post('categoria/crear',[CategoriaController::class, 'crear'])->name('categoria.crear');
+    Route::put('categoria/{id}/editar',[CategoriaController::class, 'editar'])->name('categoria.editar');
+    Route::post('categoria',[CategoriaController::class, 'guardar'])->name('categoria.guardar');
+    Route::put('categoria/{id}',[CategoriaController::class, 'actualizar'])->name('categoria.actualizar');
+    Route::delete('categoria/{id}/eliminar',[CategoriaController::class, 'eliminar'])->name('categoria.eliminar');
+
 });

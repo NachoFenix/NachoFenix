@@ -4,7 +4,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset("assets/back/js/pages/scripts/permiso/index.js")}}" type="text/javascript"></script>
+    <script src="{{asset("assets/back/js/pages/scripts/rol/index.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')

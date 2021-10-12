@@ -4,7 +4,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset("assets/back/js/pages/scripts/permiso/crear.js")}}" type="text/javascript"></script>
+    <script src="{{asset("assets/back/js/pages/scripts/rol/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
@@ -18,10 +18,10 @@
             @endif
             <div class="card">
                 <div class="card-header bg-success">
-                    <h5 class="text-white float-left">Editar Rol: {{$data->nombre}}</h5>
+                    <h5 class="text-white float-left">Editar Rol: {{$rol->nombre}}</h5>
                     <a href="{{route('rol')}}" class="btn btn-outline-light btn-sm float-rigth d-inline">Volver al listado</a> 
                 </div>
-                <form action="{{route("rol.actualizar", $data->id )}}" id="form-general" class="form-horizontal" method="POST">
+                <form action="{{route("rol.actualizar", $rol->id )}}" id="form-general" class="form-horizontal" method="POST">
                     @csrf @method('put')
                     <div class="card-body">
                         @include('theme.back.rol.form')
