@@ -94,7 +94,7 @@ class CategoriaController extends Controller
     {
         if ($request->ajax()) {
             try{
-                Categoria::destroy('$id');
+                Categoria::destroy($id);
             }catch(QueryException $exception){
                 return response()->json(['mensaje'=>'ng']);
             }

@@ -23,17 +23,27 @@ $(document).ready(function () {
     //proceso eliminar registro
     $('#data-table').on('submit', '.eliminar-registro', function (event) {
         event.preventDefault();
-        const data = {
-            _method: 'PUT',
-            _token: $('input[name=_token]').val();
-        }
+
+        const form = $(this);
+        swal.fire({
+            icon: 'warning',
+            title: 'Seguro deseas eliminar este registro',
+            text: 'Confirmar acción',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Aceptar',
+        }).then(function(result){
+            if(result.value){
+                ajaxRequest(form.attr('action'),form.serialize(),'eliminar',form);
+            }
+        });
     });
 
     //proceso Guardar o Actualizar
     $('#accion-categoria').on('submit', '#form-general', function (event) {
         event.preventDefault();
         const form = $(this);
-        ajaxRequest(form.attr('accion'), form.serialize(), 'guardar');
+        ajaxRequest(form.attr('action'), form.serialize(), 'guardar');
     });
 
     function ajaxRequest(url, data, accion, form) {
