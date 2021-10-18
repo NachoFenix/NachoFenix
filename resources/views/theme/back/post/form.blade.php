@@ -40,7 +40,9 @@
 <div class="form-group row">
     <label for="cuerpo" class="col-sm-3 text-end control-label col-form-label requerido">Cuerpo</label>
     <div class="col-sm-5">
-       <input id="body" class="form-control" style="height: 200px" value="{{old('body', $post->body ?? '')}}" name="body" required> 
+       <div id="body" class="form-control" style="height: 200px">
+        {{old('body', $post->body ?? '')}}
+    </div>
     </div>
 </div>
 <div class="form-group row">
