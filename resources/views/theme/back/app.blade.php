@@ -24,12 +24,13 @@
     />
     <!-- Custom CSS -->
     <!-- Custom CSS -->
-    <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet" />
     <link href="{{asset("assets/back/extra-libs/DataTables/datatables.min.css")}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset("assets/back/libs/toastr/build/toastr.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/back/extra-libs/sweetalert2/dist/sweetalert2.min.css")}}">
     <!-- CSS DINAMICO -->
     @yield('styles')
+    
+    <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset("assets/back/css/tutoblog.css")}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
