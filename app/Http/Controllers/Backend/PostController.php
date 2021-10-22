@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\ValidacionPost;
 use App\Models\Backend\Post;
 use App\Models\Backend\Categoria;
 use App\Models\Backend\Tag;
@@ -39,9 +40,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(Request $request)
+    public function guardar(ValidacionPost $request)
     {
-        //
+        $post = Post::create($request->validated());
+        $categorias = $request->categoria;
+        $post->categoria()->attach(array_values($categorias));
+        $tags = $request->tag ? Tag::setTag($request->tag) : [];
+        $post->tag()->attach($tags);
+        return redirect()->route('post')->with('mensaje','Post creado con exito');
     }
 
     /**

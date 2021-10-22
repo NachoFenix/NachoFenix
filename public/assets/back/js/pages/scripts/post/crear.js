@@ -31,6 +31,10 @@ $(document).ready(function () {
     var quill = new Quill('#body',{
         theme: 'snow'
     });
+
+    quill.on('editor-change', function(eventName){
+        $('#body-field').val(quill.root.innerHTML);
+    });
     const removeAccensts = (str)=>{
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     };

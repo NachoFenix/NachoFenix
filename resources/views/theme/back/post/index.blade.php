@@ -22,7 +22,7 @@
                     <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Titulo</th>
                                 <th>Slug</th>
                                 <th>Acciones</th>
                             </tr>
@@ -30,7 +30,7 @@
                         <tbody>
                                 @foreach ($posts as $post)
                                 <tr>
-                                    <td>{{$post->nombre}}</td>
+                                    <td>{{$post->titulo}}</td>
                                     <td>{{$post->slug}}</td>
                                     <td>
                                         <a href="{{route("post.editar",$post->id)}}" data-toggle="tooltip" title="Editar este registro"><i class="fas fa-edit"></i></a>

@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label for="titulo" class="col-sm-3 text-end control-label col-form-label requerido">Titulo</label>
     <div class="col-sm-5">
-       <input id="titulo" class="form-control" value="{{old('titulo', $post->titulo ?? '')}}" type="text" name="nombre" maxlength="50" required> 
+       <input id="titulo" class="form-control" value="{{old('titulo', $post->titulo ?? '')}}" type="text" name="titulo" maxlength="50" required> 
     </div>
 </div>
 <div class="form-group row">
@@ -24,7 +24,7 @@
 <div class="form-group row">
     <label for="tag" class="col-sm-3 text-end control-label col-form-label">Tags</label>
     <div class="col-sm-5">
-       <select name="tag[]" id="tag" class="tags" multiple="multiple" style="width: 100%" required>
+       <select name="tag[]" id="tag" class="tags" multiple="multiple" style="width: 100%" >
        @foreach ($tags as $key => $value)
            <option value="{{$key}}">{{$value}}</option>
        @endforeach
@@ -43,11 +43,13 @@
        <div id="body" class="form-control" style="height: 200px">
         {{old('body', $post->body ?? '')}}
     </div>
+    <input type="hidden" name="contenido" id="body-field" value="{{old('body' , $data->body ?? '')}}">
     </div>
 </div>
 <div class="form-group row">
     <label for="imagen" class="col-sm-3 text-end control-label col-form-label requerido">Imagen</label>
     <div class="col-sm-5">
-       <input id="imagen" class="form-control" data-initial-preview="{{"http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=Imagen+Post"}}" type="file" name="imagen" accept="image/*" required> 
+       <input id="imagen" class="form-control" data-initial-preview="{{"http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=Imagen+Post"}}" type="file" name="imagen" accept="image/*"> 
     </div>
 </div>
+<input type="hidden" name="usuarios_id" value="{{Auth::user()->id}}">
